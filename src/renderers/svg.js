@@ -45,7 +45,7 @@ class SVGRenderer{
 
 		if(this.options.background){
 			this.drawRect(0, 0, width, maxHeight, this.svg).setAttribute(
-				"style", "fill:" + this.options.background + ";"
+				"fill", this.options.background
 			);
 		}
 	}
@@ -135,8 +135,6 @@ class SVGRenderer{
 
 		svg.setAttribute("xmlns", svgns);
 		svg.setAttribute("version", "1.1");
-
-		svg.setAttribute("style", "transform: translate(0,0)");
 	}
 
 	createGroup(x, y, parent){
@@ -149,9 +147,7 @@ class SVGRenderer{
 	}
 
 	setGroupOptions(group, options){
-		group.setAttribute("style",
-			"fill:" + options.lineColor + ";"
-		);
+		group.setAttribute("fill", options.lineColor);
 	}
 
 	drawRect(x, y, width, height, parent){
