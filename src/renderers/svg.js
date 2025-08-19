@@ -89,9 +89,14 @@ class SVGRenderer{
 		if(options.displayValue){
 			var x, y;
 
-			textElem.setAttribute("style",
-				"font:" + options.fontOptions + " " + options.fontSize + "px " + options.font
-			);
+			textElem.setAttribute("font-family", options.font);
+			textElem.setAttribute("font-size", options.fontSize);
+			if (options.fontOptions.includes("bold")) {
+				textElem.setAttribute("font-weight", "bold");
+			}
+			if (options.fontOptions.includes("italic")) {
+				textElem.setAttribute("font-style", "italic");
+			}
 
 			if(options.textPosition == "top"){
 				y = options.fontSize - options.textMargin;
